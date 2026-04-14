@@ -23,12 +23,14 @@ const usuarios = [
   }
 ];
 
+// Ruta principal
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'Servidor funcionando correctamente'
   });
 });
 
+// Login
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
@@ -49,11 +51,11 @@ app.post('/login', (req, res) => {
   }
 
   return res.status(200).json({
-    message: 'Login successful',
-    role: usuarioEncontrado.role
+    message: 'Login successful'
   });
 });
 
+// Request por rol
 app.get('/request', (req, res) => {
   const role = req.headers.role;
 
